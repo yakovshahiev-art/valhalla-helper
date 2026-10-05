@@ -1,5 +1,5 @@
 {
-  "version": "1.0.2",
+  "version": "1.0.3",
   "url": "https://github.com/yakovshahiev-art/valhalla-helper/releases/latest/download/Valhalla_Helper_setup.exe",
   "notes": "Исправлены: окно событий города, завоевание, шахта и стройка племени. Поиск золота по карте. Проверка обновлений."
 }
