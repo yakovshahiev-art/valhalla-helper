@@ -11,6 +11,7 @@
     --gold:#d9a441; --gold-2:#f0c46a; --green:#4fb37a; --radius:14px;
   }
   *{box-sizing:border-box}
+  [hidden]{display:none!important}
   html{scroll-behavior:smooth}
   body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 "Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif}
   a{color:var(--gold-2)}
@@ -28,6 +29,7 @@
   .btn{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(180deg,var(--gold-2),var(--gold));color:#1b1406;font-weight:700;
        padding:14px 26px;border-radius:12px;text-decoration:none;font-size:17px;box-shadow:0 6px 20px rgba(217,164,65,.25)}
   .btn:hover{filter:brightness(1.06)}
+  .hero .btn{margin:0 10px 10px 0;vertical-align:middle}
   .btn.ghost{background:none;color:var(--text);border:1px solid var(--line);box-shadow:none;font-weight:600}
   .meta{margin-top:14px;color:var(--muted);font-size:14px}
   section{padding:56px 0;border-top:1px solid var(--line)}
@@ -72,6 +74,7 @@
       <a href="#install">Установка</a>
       <a href="#safety">Безопасность</a>
       <a href="#faq">Вопросы</a>
+      <a class="tg" href="#" target="_blank" rel="noopener" hidden>Telegram</a>
       <a href="#changes">Обновления</a>
     </nav>
   </div>
@@ -87,6 +90,10 @@
         Скачать для Windows
       </a>
       <a class="btn ghost" href="#install">Как установить</a>
+      <a class="btn ghost tg" href="#" target="_blank" rel="noopener" hidden>
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M21.5 4.2 2.9 11.4c-1 .4-1 1.6.1 1.9l4.6 1.4 1.8 5.5c.2.7 1.1.9 1.6.4l2.6-2.4 4.8 3.5c.6.4 1.4.1 1.6-.6L23 5.4c.2-.9-.7-1.6-1.5-1.2zM9.6 14.4l-.4 3.6-1.3-4 9.6-6.1z" fill="#2aabee"/></svg>
+        Группа в Telegram
+      </a>
       <div class="meta">Версия <b id="ver">1.0.2</b> · Windows 10/11 · ~480 МБ · бесплатно</div>
     </div>
   </div>
@@ -139,7 +146,7 @@
       <details><summary>Программа просит права администратора</summary>
         <p>Игра запускается от администратора, и без этих прав Windows не даёт программе нажимать кнопки в игре.</p></details>
       <details><summary>Бот ничего не делает / не находит кнопки</summary>
-        <p>Игра должна быть открыта и видна на экране (не свёрнута). На вкладке «Сервис» есть кнопка проверки. Снимки проблемных моментов программа сохраняет в папку <code>debug</code> — пришлите их нам.</p></details>
+        <p>Игра должна быть открыта и видна на экране (не свёрнута). На вкладке «Сервис» есть кнопка проверки. Снимки проблемных моментов программа сохраняет в папку <code>debug</code> — пришлите их вместе с файлом <code>bot.log</code><span class="tg-text" hidden> в нашу <a class="tg" href="#" target="_blank" rel="noopener">группу в Telegram</a></span>.</p></details>
       <details><summary>Как удалить программу</summary>
         <p>В папке программы есть файл «Удалить Valhalla Helper». Ваши настройки останутся в <code>%APPDATA%\VikingHelper</code>.</p></details>
     </div>
@@ -174,6 +181,12 @@
 </footer>
 
 <script>
+  // ссылка на группу в Telegram: впишите её сюда, кнопки на странице появятся сами
+  const TELEGRAM = 'https://t.me/+5YwEgdAZ4DszNjg0';
+  if (/^https:\/\/t\.me\/[A-Za-z0-9_+]/.test(TELEGRAM) && !TELEGRAM.includes('ВАША')) {
+    document.querySelectorAll('a.tg').forEach(a => { a.href = TELEGRAM; a.hidden = false; });
+    document.querySelectorAll('.tg-text').forEach(s => s.hidden = false);
+  }
   // номер версии, ссылка и «что нового» берутся из version.json — правьте только его
   fetch('version.json', {cache: 'no-store'}).then(r => r.json()).then(v => {
     if (v.version) document.getElementById('ver').textContent = v.version;
