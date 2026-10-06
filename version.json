@@ -1,7 +1,7 @@
 {
-  "version": "1.0.8",
+  "version": "1.0.9",
   "telegram": "https://t.me/valhalla_helper",
   "url": "https://github.com/yakovshahiev-art/valhalla-helper/releases/latest/download/Valhalla_Helper_setup.exe",
-  "notes": "Управление ботом через Telegram: /status, /run, /stop, /log, /screen (Настройки, блок «Управление через Telegram»). Ctrl+V и Ctrl+C работают при русской раскладке, в полях есть меню по правой кнопке.",
-  "sha256": "291a363c5ce3627b2980e6e7106bf3bbf978631d9c5613a7907ec5004815017e"
+  "notes": "Облачное управление: общий Telegram-бот и сайт с личной панелью. Настройки → «Облако»: код из бота (/link) → «Подключить», дальше /status, /run, /stop, /log, /screen, /all. Имя программы с номером окна и персонажем, подписка с пробным периодом.",
+  "sha256": "4f8cc2f728070cb996c7279da96503f7abd5b14506e15ea17fb3ad022c5b59c6"
 }
